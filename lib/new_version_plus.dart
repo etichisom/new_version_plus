@@ -142,7 +142,8 @@ class NewVersionPlus {
     if (iOSAppStoreCountry != null) {
       parameters.addAll({"country": iOSAppStoreCountry!});
     }
-    var uri = Uri.https("itunes.apple.com", "/lookup", parameters);
+    //http://itunes.apple.com/ng/lookup?id=6443845434
+    var uri = Uri.parse("http://itunes.apple.com/$iOSAppStoreCountry/lookup?id=$iOSId", );
     final response = await http.get(uri);
     if (response.statusCode != 200) {
       debugPrint('Failed to query iOS App Store');
